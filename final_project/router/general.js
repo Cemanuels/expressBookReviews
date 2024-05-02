@@ -37,7 +37,7 @@ public_users.get('/',async function (req, res) {
 public_users.get('/isbn/:isbn',async function (req, res) {
   const bookNumber = req.params.isbn
 
-  const book = getBookByIsbn(bookNumber)
+  const book = await getBookByIsbn(bookNumber)
 
   if (book) {
     return res.status(200).json({book});
