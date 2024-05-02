@@ -9,8 +9,15 @@ const isValid = (username)=>{ //returns boolean
 //write code to check is the username is valid
 }
 
-const authenticatedUser = (username,password)=>{ //returns boolean
-//write code to check if username and password match the one we have in records.
+const authenticatedUser = (username,password)=>{
+    let validusers = users.filter((user)=>{
+        return (user.username === username && user.password === password)
+      });
+      if(validusers.length > 0){
+        return true;
+      } else {
+        return false;
+      }
 }
 
 //only registered users can login
@@ -28,3 +35,4 @@ regd_users.put("/auth/review/:isbn", (req, res) => {
 module.exports.authenticated = regd_users;
 module.exports.isValid = isValid;
 module.exports.users = users;
+module.exports.authenticatedUser = authenticatedUser;
