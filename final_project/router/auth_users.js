@@ -47,8 +47,6 @@ regd_users.put("/auth/review/:isbn", (req, res) => {
     return res.status(200).json({message: 'user not logged in.'})
   }
 
-  const userReviewExists = Object.keys(books[isbn].reviews).find(key => key === username)
-
   books[isbn].reviews[username] = review
 
   return res.status(200).json(books[isbn]);
